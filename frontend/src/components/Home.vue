@@ -308,6 +308,68 @@ body::before {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .clint {
+    width: 160px;
+    margin-top: 1rem;
+    border-width: 4px;
+  }
+
+  section h2 {
+    font-size: 1.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .about p,
+  .projects p,
+  .skills span {
+    font-size: 0.95rem;
+  }
+
+  .project-card {
+    padding: 0.8rem;
+  }
+
+  .skill {
+    margin-bottom: 1rem;
+  }
+
+  .bar {
+    height: 16px;
+  }
+
+  .tooltip {
+    font-size: 0.75rem;
+  }
+
+  .social a {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    display: block;
+  }
+
+  .modal-img {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+  body {
+    overflow: auto;
+  }
+}
 
 
 </style>

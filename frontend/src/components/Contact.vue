@@ -112,4 +112,51 @@ const sendMessage = async () => {
   margin-top: 1rem;
   color: #0f0;
 }
+
+@media screen and (max-width: 600px) {
+  .contact-container {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0;
+    margin: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .links {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .links a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .contact-form {
+    font-size: 0.95rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .contact-form button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .status {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
+
+
+
 </style>

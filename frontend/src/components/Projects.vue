@@ -43,4 +43,25 @@ onMounted(async () => {
 .project-container li {
   margin-bottom: 0.5rem;
 }
+
+@media screen and (max-width: 600px) {
+  .project-container {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0;
+  }
+
+  .project-container h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .project-container li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+}
+
 </style>

@@ -80,6 +80,8 @@ const skills = ref([
   { name: 'Python', level: 75 },
   { name: 'Machine Learning', level: 75 },
   { name: 'R-Programming', level: 60 },
+  { name: 'JAVA', level: 80 },
+  { name: 'C++', level: 50 },
 ]);
 
 onMounted(async () => {

@@ -57,6 +57,8 @@
         <span>{{ skill.name }}</span>
         <div class="bar">
           <div class="level" :style="{ width: skill.level + '%' }"></div>
+
+           <span class="tooltip">{{ skill.level }}%</span>
         </div>
       </div>
     </section>
@@ -83,7 +85,10 @@ const skills = ref([
   { name: 'Vue.js', level: 80 },
   { name: 'Node.js', level: 75 },
   { name: 'HTML/CSS', level: 90 },
-  { name: 'Python', level: 70 }
+  { name: 'Python', level: 75 },
+  { name: 'Machine Learning', level: 75 },
+   { name: 'R-Programming', level: 60 }
+
 ])
 
 onMounted(async () => {
@@ -148,8 +153,16 @@ section h2 {
 .skills span {
   font-size: 1rem;
   line-height: 1.5;
-  color: #f9f9f9;
+  color:#f9f9f9;
 
+}
+
+.projects h3,
+.projects p,
+.projects
+{
+
+  color: black;
 }
 
 .social a {
@@ -172,22 +185,47 @@ section h2 {
   transform: translateY(-5px);
 }
 
-.skills .skill {
-  margin: 0.5rem 0;
+.skills {
+  margin-top: 2rem;
+}
+
+.skill {
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .bar {
-  background: #eee;
-  height: 10px;
-  border-radius: 5px;
+  background-color: #ddd;
+  border-radius: 8px;
   overflow: hidden;
+  height: 20px;
+  position: relative;
 }
 
 .level {
-  height: 10px;
-  background: #0078d7;
-  transition: width 1s ease-in-out;
+  background-color: #4caf50;
+  height: 100%;
+  position: relative;
+  transition: width 0.5s ease-in-out;
 }
+
+.tooltip {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.level:hover .tooltip {
+  opacity: 1;
+}
+
 
 .main {
   text-align: center;

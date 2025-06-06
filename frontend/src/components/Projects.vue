@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="project-container">
     <h1>My Projects</h1>
     <ul>
       <li v-for="project in projects" :key="project.id">
@@ -20,3 +20,27 @@ onMounted(async () => {
   projects.value = data
 })
 </script>
+
+<style scoped>
+.project-container {
+  background-color: #000; /* black background */
+  color: #fff;            /* white text for contrast */
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;       /* slightly bigger font */
+}
+
+.project-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.project-container li {
+  margin-bottom: 0.5rem;
+}
+</style>

@@ -3,13 +3,13 @@ const router = express.Router();
 
 // Example data
 const projects = [
-  { id: 1, title: 'Portfolio Website', tech: 'Vue.js, Node.js' },
-  { id: 2, title: 'AI Chatbot', tech: 'Python, TensorFlow' },
-  { id: 3, title: 'Weather App', tech: 'React, Express' },
+  { id: 1, title: 'Portfolio Website', tech: 'Vue.js, Node.js, Javscript', github: 'https://github.com/Clint2205/Clint-Portfolio.git'},
+  { id: 2, title: 'AirBnB Natural Langauge Processing', tech: 'R-Programming, R-Studio ', github: 'https://github.com/Clint2205/AirBnB-NLP-.git' },
+  { id: 3, title: 'Feature Engineering School Logs', tech: 'Python, Jupyter Notebook', github: 'https://github.com/Clint2205/Feature-Engineering.git' },
   {
     "id": 4,
-    title: "Voice Assist for Stroke Survivors",
-    description: "A speech-to-text app for communication assistance.",
+    title: "Voice Assist for Stroke Survivors (Development)",
+    description: "A speech and facial recognition to text app for communication assistance.",
     tech: "Python, Flask, NLP",
     github: "https://github.com/Clint2205/stroke-voice-app"
   }

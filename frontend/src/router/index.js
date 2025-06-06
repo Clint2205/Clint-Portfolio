@@ -8,6 +8,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/projects', component: Projects },
   { path: '/contact', component: Contact },
+  { path: '/:pathMatch(.*)*', redirect: '/' }  // catch-all to Home
 ]
 
 const router = createRouter({

@@ -23,11 +23,30 @@ onMounted(async () => {
 
 <style scoped>
 .project-container {
-  background-color: #000; /* black background */
-  color: #fff;            /* white text for contrast */
-  padding: 2rem;
+  
+ max-width: 700px;
+    width: 80vw;
+
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #f1f1f1;
+  background: rgba(13, 13, 13, 0.6); /* or 0.7 */
+backdrop-filter: blur(4px); /* optional glass effect */
+
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  font-size: 1.2rem;       /* slightly bigger font */
+
+  min-height: 100dvh; /* dynamic viewport height: better for mobile */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 1;  /* slightly bigger font */
 }
 
 .project-container h1 {
@@ -44,24 +63,6 @@ onMounted(async () => {
   margin-bottom: 0.5rem;
 }
 
-@media screen and (max-width: 1000px) {
-  .project-container {
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 0;
-  }
 
-  .project-container h1 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .project-container li {
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-    word-wrap: break-word;
-  }
-}
 
 </style>

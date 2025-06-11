@@ -134,24 +134,33 @@ body::before {
   }
 }
 
+
 .container {
-  max-width: 900px;
-  width: 90vw;
-  margin: auto;
+  max-width: 700px;
+  width: 100%;
+
+  margin: 0 auto;
   padding: 2rem 1rem;
   font-family: 'Segoe UI', sans-serif;
-  color: #f1f1f1; /* Light text for contrast */
-  background: linear-gradient(145deg, #0d0d0d, #1a1a1a); /* Glossy black gradient */
+  color: #f1f1f1;
+  background: rgba(13, 13, 13, 0.6); /* or 0.7 */
+backdrop-filter: blur(4px); /* optional glass effect */
+
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05),
-    0 4px 20px rgba(0, 0, 0, 0.6); /* Inner highlight + outer shadow */
+    0 4px 20px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 
-  /* Make container take full height on small screens */
-  min-height: 80vh;
+  min-height: 100dvh; /* dynamic viewport height: better for mobile */
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 1;
 }
+
 
 h1 {
   color: #f9f9f9;
@@ -316,42 +325,4 @@ section h2 {
   object-fit: contain;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .container {
-    padding: 1.5rem 1rem;
-    width: 95vw;
-  }
-
-  .project-card {
-    padding: 0.8rem;
-  }
-
-  .bar {
-    height: 16px;
-  }
-
-  .tooltip {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: clamp(1.3rem, 6vw, 2rem);
-  }
-
-  section h2 {
-    font-size: clamp(1rem, 5vw, 1.5rem);
-  }
-
-  .social a {
-    margin: 0 0.5rem;
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
-  }
-
-  .clint {
-    max-width: 180px;
-  }
-}
 </style>

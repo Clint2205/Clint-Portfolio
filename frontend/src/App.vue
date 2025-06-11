@@ -3,7 +3,7 @@
     <!-- Matrix Background -->
     <canvas ref="matrixCanvas" class="matrix-background"></canvas>
 
-    <nav>
+   <nav class="layout-container">
       <router-link to="/">Home</router-link>
       <router-link to="/projects">Projects</router-link>
       <router-link to="/contact">Contact</router-link>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, onBeforeUnmount } from 'vue';
 
 const matrixCanvas = ref(null);
 
@@ -27,17 +27,15 @@ onMounted(() => {
   let columns;
   let drops;
 
-  function resize() {
+  function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     columns = Math.floor(canvas.width / fontSize);
     drops = Array.from({ length: columns }, () => 1);
   }
 
-  resize(); // Initial setup
-
-  window.addEventListener('resize', resize);
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
   function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -55,53 +53,63 @@ onMounted(() => {
     });
   }
 
-  setInterval(draw, 33);
-});
+  const interval = setInterval(draw, 33);
 
+  onBeforeUnmount(() => {
+    clearInterval(interval);
+    window.removeEventListener('resize', resizeCanvas);
+  });
+});
 </script>
 
 <style scoped>
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background: black; /* fallback background */
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body, #app {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  background: #000; /* fallback background */
-}
-
-.main {
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  min-height: 100vh;
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-y: auto; /* Allow vertical scrolling on smaller screens */
-}
-
-/* Matrix canvas covers entire screen */
+/* Matrix canvas fills entire screen and stays fixed */
 .matrix-background {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100dvh;
   z-index: -1;
   pointer-events: none;
-  display: block;
 }
 
 
-/* Navigation styling */
+/* Content wrapper */
+.main {
+  min-height: 100vh;
+  max-width: 100vw;
+  padding: 2rem;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+
+/* Navigation */
 nav {
-  background: linear-gradient(90deg, #8B0000, #FF0000, #FF6347);
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #8b0000, #ff0000, #ff6347);
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;
@@ -113,6 +121,12 @@ nav {
   flex-wrap: wrap;
   gap: 1rem;
 }
+.layout-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 
 nav a {
   color: white;
@@ -120,25 +134,24 @@ nav a {
   white-space: nowrap;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .main {
-    padding: 1rem;
-  }
-
+/* Responsive styling */
+@media (max-width: 800px) {
   nav {
     flex-direction: column;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0.8rem 1rem;
     border-radius: 0;
   }
+
+  .main {
+    padding: 1rem;
+  }
 }
 
-/* Smaller mobile devices */
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   nav {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 0.6rem 1rem;
   }
 

@@ -58,13 +58,29 @@ const sendMessage = async () => {
 
 <style scoped>
 .contact-container {
-  background-color: #000;
-  color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 2rem auto;
-  font-size: 1.1rem;
+  max-width: 700px;
+    width: 72vw;
+
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #f1f1f1;
+  background: rgba(13, 13, 13, 0.6); /* or 0.7 */
+backdrop-filter: blur(4px); /* optional glass effect */
+
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+
+  min-height: 100dvh; /* dynamic viewport height: better for mobile */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 1;  /* slightly bigger font */
 }
 
 .links a {

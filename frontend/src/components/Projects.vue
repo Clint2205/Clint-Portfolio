@@ -15,7 +15,7 @@ import { ref, onMounted } from 'vue'
 const projects = ref([])
 
 onMounted(async () => {
-  const res = await fetch('http://localhost:3001/api/projects')
+  const res = await fetch('https://portfolio-backend-production-f446.up.railway.app/api/projects')
   const data = await res.json()
   projects.value = data
 })

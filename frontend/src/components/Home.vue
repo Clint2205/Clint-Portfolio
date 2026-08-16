@@ -5,7 +5,7 @@
     </div>
 
     <img
-      src="/images/Clint.jpg"
+      src="/images/IMG_9417.JPG"
       alt="clint"
       class="clint"
       @click="openModal('/images/IMG_9417.JPG')"

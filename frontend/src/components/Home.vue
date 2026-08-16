@@ -8,7 +8,7 @@
       src="/images/Clint.jpg"
       alt="clint"
       class="clint"
-      @click="openModal('/images/Clint.jpg')"
+      @click="openModal('/images/IMG_9417.JPG')"
     />
 
     <h1>Hello, I’m Clint Muzanenhamo</h1>
